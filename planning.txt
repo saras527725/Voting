@@ -1,0 +1,43 @@
+VOTING APPLICATION
+
+a->  What - A functionallity where user can give votes to the given set of candidates
+b-> Models?
+c-> Routes?
+
+-----------------------------------------------------------------
+a-> What
+ voting app functionallity
+ 1 use signin/up
+ 2 see the list of candidates
+ 3 one person give one vote only
+ 4 there is a route which shows the list of canditate and *Live vote score* by their votecount
+ 5 user data must contain their one unique gov. id proof : adhaar card
+ 6 their should be one Admin who can only maintain the table of canditate.
+ 7 admin can't able to vote at all
+ 8 user can change their passoword
+ 9 user can login only with adhar card and password
+ 10 see the result of the voting
+----------------------------------------------------------------------
+ b-> Routes
+ User Authentication
+  /signin" POST - Create a new user account.
+  /signup" POST - Log in to an existing account.
+
+  voting:
+  /canditate: GET - Get the List of candidates
+  /vote/:candidateID: POST -Vote for a specific canditate.
+
+  Vote Counts:
+  /vote/counts: GET -Get the list of canditates sorted by their vote count.
+   
+   User Profile:
+    /Profile:GET -Get the user's profile information
+    /profile/password :PUT -Change the user's passoword
+
+    Admin Candidate Management:
+    /candidate: POST - Create a new canditate.
+    /candidate/:candidateID: PUT -update an existing canditate.
+    /candidates/:candidates: DELETE - Delete a canditate from the list.
+---------------------------------------------------------------------------
+c-> Models
+           draw.io
