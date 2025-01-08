@@ -96,6 +96,16 @@ res.status(200).json({message:"password updated successfully"})
   res.status(500).json({error:"internal server error (password not updated)"})
   }
   })
+  // get all user
+  router.get('/allusers',async(req,res)=>{
+    try{
+      const users=await Userr.find()
+      res.status(200).json(users);
+      }
+      catch(error){
+        console.error('Error fetching all users',error);
+        res.status(500).json({error:"internal server error (users not shown)"}) 
+      }})
 
   
 module.exports=router

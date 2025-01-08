@@ -89,7 +89,7 @@ router.delete('/:candidateID',jwtAuthMiddleware, async (req, res)=>{
       res.status(500).json({error: 'Internal Server Error'});
   }
 })
-router.get('/vote/:candidateID', jwtAuthMiddleware, async (req, res)=>{
+router.post('/vote/:candidateID', jwtAuthMiddleware, async (req, res)=>{
   // no admin can vote
   // user can only vote once
   
@@ -135,7 +135,7 @@ router.get('/vote/:candidateID', jwtAuthMiddleware, async (req, res)=>{
 router.get('/vote/count', async (req, res) => {
   try{
       // Find all candidates and sort them by voteCount in descending order
-      const candidate = await Candidate.find().sort({voteCount: 'desc'});
+      const candidate = await Candidate.find().sort({voteCount: -1});
 
       // Map the candidates to only return their name and voteCount
       const voteRecord = candidate.map((data)=>{
